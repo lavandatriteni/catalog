@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Catalog Lavandă Triteni</title>
   <meta name="description" content="Catalog Lavandă Triteni - vizualizare & descărcare">
   <meta property="og:title" content="Catalog Lavandă Triteni">
@@ -11,6 +11,13 @@
     :root{--bg:#fbfbfc;--card:#fff;--accent:#6b46c1;--muted:#6b7280}
     html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg);color:#111}
     .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:36px}
+    body {
+  padding: 0;
+  margin: 0;
+}
+.wrap {
+  padding: 16px;
+}
     .card{width:100%;max-width:980px;background:var(--card);border-radius:12px;box-shadow:0 12px 40px rgba(16,24,40,0.06);overflow:hidden}
     header{padding:20px 26px;border-bottom:1px solid #f1f1f5;display:flex;align-items:center;justify-content:space-between}
     h1{margin:0;font-size:20px}
@@ -20,7 +27,25 @@
     .viewer{height:720px;border:0;width:100%}
     .fallback{padding:18px}
     .small{color:var(--muted);font-size:13px}
-    @media (max-width:720px){.viewer{height:520px}}
+    @media (max-width: 720px) {
+  .viewer {
+    height: 80vh; /* 80% din înălțimea ecranului */
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+}
   </style>
 </head>
 <body>
