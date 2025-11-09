@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Catalog Lavandă Triteni</title>
+  <meta name="description" content="Catalog Lavandă Triteni - vizualizare & descărcare">
+  <meta property="og:title" content="Catalog Lavandă Triteni">
+  <meta property="og:description" content="Catalog Lavandă Triteni - vizualizare & descărcare">
+  <style>
+    :root{--bg:#fbfbfc;--card:#fff;--accent:#6b46c1;--muted:#6b7280}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg);color:#111}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:36px}
+    .card{width:100%;max-width:980px;background:var(--card);border-radius:12px;box-shadow:0 12px 40px rgba(16,24,40,0.06);overflow:hidden}
+    header{padding:20px 26px;border-bottom:1px solid #f1f1f5;display:flex;align-items:center;justify-content:space-between}
+    h1{margin:0;font-size:20px}
+    .controls{display:flex;gap:10px;align-items:center}
+    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(107,70,193,0.12)}
+    .viewer{height:720px;border:0;width:100%}
+    .fallback{padding:18px}
+    .small{color:var(--muted);font-size:13px}
+    @media (max-width:720px){.viewer{height:520px}}
+  </style>
+</head>
+<body>
+  <!--
+    INSTRUCȚIUNI RAPIDE:
+    1) Salvează acest fișier ca "index.html"
+    2) Plasează alături în același folder fișierul PDF: CatalogLavandaTriteni.pdf
+    3) Încarcă folderul (sau cele două fișiere) pe GitHub în repository-ul tău
+       - Dacă repo-ul se numește exact <username>.github.io, pagina va fi la https://<username>.github.io/
+       - Dacă repo-ul are alt nume, pagina va fi la https://<username>.github.io/<repo>/
+    4) În GitHub: Settings → Pages → Source: main (root) → Save. Așteaptă câteva minute și deschide linkul public.
+  -->
+
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <h1>Catalog Lavandă Triteni</h1>
+        <div class="controls">
+          <a class="btn" id="openPdf" href="CatalogLavandaTriteni.pdf" target="_blank">Deschide PDF în filă nouă</a>
+          <a class="btn ghost" id="downloadPdf" href="CatalogLavandaTriteni.pdf" download>Descarcă PDF</a>
+        </div>
+      </header>
+
+      <!-- Vizualizator PDF: 3 opțiuni (iframe/embed/object). Browser-ele moderne vor afișa PDF-ul direct.
+           Dacă nu se încarcă, link-ul de download rămâne funcțional. -->
+      <div>
+        <iframe class="viewer" id="pdfFrame" src="CatalogLavandaTriteni.pdf"></iframe>
+      </div>
+
+      <div class="fallback" style="border-top:1px solid #f6f6f9">
+        <p class="small">Dacă PDF-ul nu se încarcă, folosește linkul de descărcare sau deschide fișierul direct: <a href="CatalogLavandaTriteni.pdf">CatalogLavandaTriteni.pdf</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // mică ajustare: dacă browserul nu permite încărcarea în iframe (CSP), oferim fallback
+    (function(){
+      const frame = document.getElementById('pdfFrame');
+      frame.addEventListener('error', ()=>{
+        frame.style.display='none';
+      });
+      // detectăm dimensiuni mici și ajustăm height
+      function resize(){ if(window.innerWidth<720) frame.style.height='520px'; }
+      window.addEventListener('resize', resize); resize();
+    })();
+  </script>
+</body>
+</html>
