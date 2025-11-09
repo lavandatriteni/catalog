@@ -94,5 +94,12 @@
       window.addEventListener('resize', resize); resize();
     })();
   </script>
+  <script>
+  // Detectăm dispozitivul mobil
+  if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    // Redirecționăm direct către fișierul PDF
+    window.location.href = "CatalogLavandaTriteni.pdf";
+  }
+</script>
 </body>
 </html>
